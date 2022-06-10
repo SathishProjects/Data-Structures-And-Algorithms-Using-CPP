@@ -1,0 +1,30 @@
+#include <iostream>
+#include <stdlib.h>
+
+int main(){
+	struct node{
+		int data;
+		struct node *next;
+	};
+	
+	struct node *head, *middle, *last;
+	
+	head=(struct node *) malloc(sizeof(struct node));
+	middle=(struct node *) malloc(sizeof(struct node));
+	last=(struct node *) malloc(sizeof(struct node));
+	
+	head->data = 10;
+	middle->data = 20;
+	last->data = 30;
+	
+	head->next = middle;
+	middle->next = last;
+	last->next = NULL;
+	
+	struct node *temp = head;
+	
+	while(temp != NULL){
+		std::cout<<temp->data<<" ";
+		temp = temp->next;
+	}
+}
